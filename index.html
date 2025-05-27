@@ -8,7 +8,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('20250526_121058.jpg') no-repeat center center fixed;
+      /* Temporary fallback color so we know if image fails */
+      background: #222 url('20250526_121058.jpg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
       flex-direction: column;
@@ -18,10 +19,22 @@
       text-align: center;
       color: #fff;
       position: relative;
-      z-index: 1;
     }
 
-    /* Dark overlay for better readability */
+    /* Diagnostic message - will show if image fails to load */
+    body::after {
+      content: "Image path: '20250526_121058.jpg'";
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      color: white;
+    }
+
+    /* Rest of your CSS remains the same */
     body::before {
       content: "";
       position: fixed;
@@ -35,12 +48,14 @@
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
       text-shadow: 1px 1px 4px #000;
+      position: relative;
     }
 
     p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       text-shadow: 1px 1px 4px #000;
+      position: relative;
     }
 
     .button {
@@ -52,6 +67,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-shadow: 1px 1px 3px #000;
+      position: relative;
     }
 
     .register {
