@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Play Rummy and win real cash on RummyLoot - India's most trusted rummy platform." />
+  <meta name="keywords" content="Rummy, RummyLoot, Play Rummy, Win Cash, Online Rummy India" />
+  <meta name="author" content="RummyLoot Team" />
+  <title>RummyLoot - Play & Win</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437b1?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body class="text-white font-sans">
+  <div class="bg-overlay min-h-screen flex flex-col">
+    <header class="flex justify-between items-center p-6">
+      <h1 class="text-3xl font-bold">RummyLoot</h1>
+      <nav class="space-x-6">
+        <a href="#features" class="hover:text-yellow-400">Features</a>
+        <a href="#download" class="hover:text-yellow-400">Download</a>
+        <a href="#contact" class="hover:text-yellow-400">Contact</a>
+        <a href="#auth" class="hover:text-yellow-400">Login/Register</a>
+      </nav>
+    </header>
+    <section class="flex-grow flex flex-col items-center justify-center text-center px-4 animate__animated animate__fadeIn">
+      <h2 class="text-5xl font-bold mb-4">Play Rummy & Win Real Cash!</h2>
+      <p class="text-xl mb-6 max-w-2xl">Experience India's most trusted Rummy platform. Instant withdrawals, secure gameplay, and exciting rewards await you.</p>
+      <a href="#download" class="bg-yellow-400 text-black font-bold px-6 py-3 rounded-full hover:bg-yellow-300 transition">Download Now</a>
+    </section>
+    <section id="features" class="bg-black bg-opacity-70 py-12 px-6 animate__animated animate__fadeInUp">
+      <h3 class="text-3xl font-bold text-center mb-8">Why Choose RummyLoot?</h3>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <h4 class="text-xl font-semibold mb-2">Secure Platform</h4>
+          <p>Play with peace of mind. We use advanced encryption and fair play policies.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-2">Instant Withdrawals</h4>
+          <p>Withdraw your winnings instantly to your bank or wallet.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-2">24x7 Support</h4>
+          <p>Get help anytime with our dedicated customer support.</p>
+        </div>
+      </div>
+    </section>
+    <section id="download" class="py-12 text-center animate__animated animate__fadeInUp">
+      <h3 class="text-3xl font-bold mb-4">Download the App</h3>
+      <p class="mb-6">Join thousands of players. Start your winning journey now!</p>
+      <a href="#" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-400 transition">Download for Android</a>
+    </section>
+    <section id="auth" class="bg-black bg-opacity-70 py-12 px-6 animate__animated animate__fadeInUp">
+      <h3 class="text-3xl font-bold text-center mb-8">Login / Register</h3>
+      <div class="max-w-md mx-auto bg-gray-800 p-8 rounded-lg">
+        <form id="authForm" class="space-y-4">
+          <div>
+            <label for="email" class="block text-sm font-medium">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 mt-1 rounded bg-gray-700 border border-gray-600 text-white">
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium">Password</label>
+            <input type="password" id="password" name="password" required class="w-full px-4 py-2 mt-1 rounded bg-gray-700 border border-gray-600 text-white">
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-yellow-400 text-black font-semibold px-6 py-2 rounded hover:bg-yellow-300 transition">Login</button>
+            <a href="#" onclick="registerUser()" class="text-yellow-400 hover:underline text-sm">Register</a>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section id="contact" class="bg-black bg-opacity-70 py-12 px-6 animate__animated animate__fadeInUp">
+      <h3 class="text-3xl font-bold text-center mb-8">Contact Us</h3>
+      <div class="text-center">
+        <p>Email: <a href="mailto:support@rummyloot.com" class="text-yellow-400">support@rummyloot.com</a></p>
+        <p>Phone: +91-9876543210</p>
+      </div>
+    </section>
+    <footer class="text-center py-4 bg-black bg-opacity-80">
+      <p>&copy; 2025 RummyLoot. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    const auth = firebase.auth();
+    document.getElementById("authForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => alert("Login successful!"))
+        .catch((error) => alert("Login failed: " + error.message));
+    });
+    function registerUser() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => alert("Registration successful!"))
+        .catch((error) => alert("Registration failed: " + error.message));
+    }
+  </script>
+</body>
+</html>
