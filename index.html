@@ -8,7 +8,6 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* Temporary fallback color so we know if image fails */
       background: #222 url('20250526_121058.jpg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
@@ -21,25 +20,12 @@
       position: relative;
     }
 
-    /* Diagnostic message - will show if image fails to load */
-    body::after {
-      content: "Image path: '20250526_121058.jpg'";
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.7);
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      color: white;
-    }
-
-    /* Rest of your CSS remains the same */
+    /* Brighter overlay (changed from 0.4 to 0.3 opacity) */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.3);
       z-index: 0;
       pointer-events: none;
     }
@@ -58,9 +44,15 @@
       position: relative;
     }
 
+    /* Button container for horizontal layout */
+    .button-container {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
     .button {
       padding: 1rem 2rem;
-      margin: 0.5rem;
       font-size: 1rem;
       border: none;
       border-radius: 8px;
@@ -68,6 +60,8 @@
       transition: all 0.3s ease;
       text-shadow: 1px 1px 3px #000;
       position: relative;
+      /* More vibrant button colors */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .register {
@@ -77,6 +71,8 @@
 
     .register:hover {
       background-color: #42a5f5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     .claim {
@@ -86,13 +82,17 @@
 
     .claim:hover {
       background-color: #ec407a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
   <h1>Welcome to RummyLoot!</h1>
   <p>Join now and claim your exclusive Rummy bonus.</p>
-  <button class="button register" onclick="window.location.href='https://rummyloot.net?from_gameid=5480787&channelCode=4640375'">Register</button>
-  <button class="button claim" onclick="window.location.href='https://t.me/rummylootvip'">Claim Your Bonus</button>
+  <div class="button-container">
+    <button class="button register" onclick="window.location.href='https://rummyloot.net?from_gameid=5480787&channelCode=4640375'">Register</button>
+    <button class="button claim" onclick="window.location.href='https://t.me/rummylootvip'">Claim Your Bonus</button>
+  </div>
 </body>
 </html>
