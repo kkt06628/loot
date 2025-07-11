@@ -2,100 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RummyLoot - Welcome Bonus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rummy Loot - India's No.1 Gaming Site</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #222 url('20250526_121058.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: Arial, sans-serif;
       text-align: center;
-      color: #fff;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      margin-top: -120px; /* Moved higher */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background: #fff;
+      color: #333;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 4px #000;
+      color: #7B1FA2;
+      font-size: 6vw;
+      font-weight: 800;
+      margin-top: 20px;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 4px #000;
+    .logo {
+      width: 50vw;
+      max-width: 200px;
+      margin: 20px auto;
     }
 
-    .button-container {
-      display: flex;
-      gap: 20px;
+    .timer {
+      font-size: 5vw;
+      color: red;
+      font-weight: bold;
+      margin: 20px 0;
     }
 
-    .button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
+    .download-btn {
+      background-color: #007bff;
+      color: #fff;
       border: none;
-      border-radius: 8px;
+      padding: 15px 30px;
+      font-size: 5vw;
+      border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      text-shadow: 1px 1px 3px #000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      display: inline-block;
+      text-decoration: none;
+      width: 90%;
+      max-width: 400px;
     }
 
-    .register {
-      background-color: #64b5f6;
-      color: white;
+    .download-btn:hover {
+      background-color: #0056b3;
     }
 
-    .register:hover {
-      background-color: #42a5f5;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    .features {
+      font-size: 4vw;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
-    .claim {
-      background-color: #f06292;
-      color: white;
+    .features p {
+      margin: 8px 0;
+      font-weight: bold;
     }
 
-    .claim:hover {
-      background-color: #ec407a;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    .features span {
+      margin-right: 8px;
+    }
+
+    .orange { color: orange; }
+    .purple { color: #9c27b0; }
+    .green  { color: #4caf50; }
+    .red    { color: red; }
+
+    @media (min-width: 600px) {
+      h1 { font-size: 24px; }
+      .timer { font-size: 20px; }
+      .download-btn { font-size: 18px; }
+      .features { font-size: 16px; }
     }
   </style>
+
+  <!-- ✅ Google Analytics 4 (Replace G-XXXXXXX with your actual Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+
 </head>
 <body>
-  <div class="content">
-    <h1>Welcome to RummyLoot!</h1>
-    <p>Join now and claim your exclusive Rummy bonus.</p>
-    <div class="button-container">
-      <button class="button register" onclick="window.location.href='https://rummyloot.net?from_gameid=5480787&channelCode=4640375'">Register</button>
-      <button class="button claim" onclick="window.location.href='https://t.me/rummylootvip'">Claim Your Bonus</button>
-    </div>
+
+  <h1>INDIA'S NO 1 GAMING SITE</h1>
+
+  <img src="273702ce-f08e-4d00-a0f8-9cbc61aea1f4.png" alt="Rummy Loot" class="logo"/>
+
+  <div class="timer" id="timer">00 : 00 : 02</div>
+
+  <a href="https://tinyurl.com/4ey9jwwk" class="download-btn" id="download">
+    ⬇️ DOWNLOAD AND PLAY<br><small>Click here</small>
+  </a>
+
+  <div class="features">
+    <p><span>✔️</span><span class="orange">FREE BONUS FAST REGISTER</span></p>
+    <p><span>✔️</span><span class="purple">SUPER FAST WITHDRAWAL</span></p>
+    <p><span>✔️</span><span class="green">SUPER FAST DIPOSIT</span></p>
+    <p><span>✔️</span><span class="red">FREE DIPOSIT BONUS</span></p>
   </div>
+
+  <script>
+    let countdown = 2;
+    const timerElement = document.getElementById('timer');
+    const downloadLink = document.getElementById('download');
+
+    const interval = setInterval(() => {
+      countdown--;
+      let sec = countdown < 10 ? '0' + countdown : countdown;
+      timerElement.textContent = `00 : 00 : ${sec}`;
+      if (countdown === 0) {
+        clearInterval(interval);
+        // ✅ Track redirect
+        gtag('event', 'auto_redirect', {
+          event_category: 'engagement',
+          event_label: '2s_redirect'
+        });
+        window.location.href = downloadLink.href;
+      }
+    }, 1000);
+
+    downloadLink.addEventListener('click', () => {
+      gtag('event', 'manual_click', {
+        event_category: 'button',
+        event_label: 'Download and Play'
+      });
+    });
+  </script>
+
 </body>
 </html>
